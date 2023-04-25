@@ -4,13 +4,12 @@ const blogSchema = new Schema(
   {
     title: { type: String, trim: true, required: true, unique: true },
 
-    description: { type: String, trim: true, required: true },
-
-    image: { type: String, trim: true, required: true },
-
     slug: { type: String, required: true },
 
-      },
+    description: { type: String, trim: true, required: true, minlength: 3 },
+
+    image: { type: String, trim: true, required: true },
+  },
   { timestamps: true }
 );
 

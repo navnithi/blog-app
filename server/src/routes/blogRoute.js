@@ -1,15 +1,16 @@
 
 const express = require("express");
-const { getAllBlogs } = require("../controllers/blogcontroller");
+const { getAllBlogs, createBlog, updateblog, deleteBlog, getSingleBlog } = require("../controllers/blogcontroller");
+const upload = require("../middleware/fileUpload");
 const blogRouter = express.Router();
 
-blogRouter.get("/", getAllBlogs);
+blogRouter.route("/").get(getAllBlogs).post(upload.single("image"), createBlog);
+
+blogRouter.route("/:id").get(getSingleBlog).put( updateblog).delete(deleteBlog);
 
 
-blogRouter.get("*", (req, res) => { 
-  res.status(404).json({
-    message: "404 not found",
-  });
+blogRouter.use("*", (req, res, next) => { 
+  res.send("Route not found");
 });
 
 module.exports = blogRouter;
