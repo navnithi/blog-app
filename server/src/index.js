@@ -17,14 +17,15 @@ app.listen(port, async() => {
 
 app.get("/test-api", (req, res) => {
     res.send("api is working")
-})
+});
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:3001", "http://local:3000"],
+    origin: ["http://127.0.0.1:3000", "http://localhost:3000"],
     credentials: true,
   })
 );
+ app.use("/public", express.static("public"));
 app.use(morgan("dev"))
 app.use(morgan("dev"));
 app.use(bodyParser.json());

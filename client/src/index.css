@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  background-color: rgb(86, 21, 21);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  
+}
+.nav__link{
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  }
+.nav__link:hover{
+  color:orange;
+  text-decoration: underline;
+  }
+  .blog-img{
+    width: 10rem;
+    height: 10rem;
+  }
+  .card{
+    background-color:bisque;
+    padding: 1rem;
+    gap: 1rem ;
+  }
+
+  

@@ -5,7 +5,8 @@ const Blog = require("../models/blogModel");
 
 const getAllBlogs = async(req, res, next) =>{
     try {
-        return successHandler(res, 200, "Returned all blogs", []);
+        const blogs = await Blog.find({});
+        return successHandler(res, 200, "Returned all blogs", blogs);
          
         
     } catch (error) {
@@ -27,6 +28,7 @@ const getSingleBlog = async (req, res, next) => {
 const createBlog = async (req, res, next) => {
   try {
     const { title, description } = req.body;
+    
 
     if (!title|| !description)
       throw createError(404, "title or description is missing");
@@ -34,7 +36,7 @@ const createBlog = async (req, res, next) => {
     if (title.length < 3)
       throw createError(400, "Title length should be atleast 3 character");
 
-    const image = req.file;
+    const image = req.file.path;
     if (image && image.size > Math.pow(1024, 2))
       throw createError(400, "File sizze should be less than 1MB");
 
@@ -45,7 +47,7 @@ const createBlog = async (req, res, next) => {
         title: title,
         slug:slugify(title),
         description: description,
-        image: image.path,
+        image: image.filename,
     })
 
     const blogData = await newBlog.save();

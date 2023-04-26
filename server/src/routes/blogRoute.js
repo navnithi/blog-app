@@ -6,6 +6,7 @@ const blogRouter = express.Router();
 
 blogRouter.route("/").get(getAllBlogs).post(upload.single("image"), createBlog);
 
+
 blogRouter.route("/:id").get(getSingleBlog).put( updateblog).delete(deleteBlog);
 
 
