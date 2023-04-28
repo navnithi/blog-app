@@ -47,7 +47,7 @@ const createBlog = async (req, res, next) => {
         title: title,
         slug:slugify(title),
         description: description,
-        image: image.filename,
+        image: image,
     })
 
     const blogData = await newBlog.save();
