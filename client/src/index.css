@@ -40,4 +40,11 @@ code {
     gap: 1rem ;
   }
 
+  .post{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
   

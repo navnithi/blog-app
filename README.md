@@ -3,7 +3,7 @@
  - step1: created the server
  - step2: env variables
  - step3: handle the http errors
- - step4: how  to use morgan, body-parser, slug
+ - step4: how  to use morgan, body-parser, slug, cookie-parser
  - step5: connect to the mongoose
  - step6: create a model - blog - title, description, image
  - step7: MVC Architecture
@@ -15,7 +15,7 @@
  - step13:unique text with slug
  - step14:DB can be checked in MongoDB compass
  - step15:cors
- - step16:register user
+ - step16:register user - send email
  - step17:verify user
  - step18:login user
  - step19:logout user
